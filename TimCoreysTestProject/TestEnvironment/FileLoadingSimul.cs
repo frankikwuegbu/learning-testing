@@ -16,7 +16,7 @@ public static class FileLoadingSimul
     {
         if (fileName.Length < 10)
         {
-            throw new ArgumentException("could not load file", nameof(fileName));
+            throw new ArgumentException("could not load file", fileName);
         }
 
         return "file successfully loaded";

@@ -10,11 +10,32 @@ public class FileLoadingSimulTest
     {
         //Arrange
         var fileName = "valid file name";
+        var expectedResult = "file successfully loaded";
 
         //Act
-        var result = FileLoadingSimul.LoadFile(fileName);
+        var actualResult = FileLoadingSimul.LoadFile(fileName);
 
         //Assert
-        Assert.NotNull(result);
+        Assert.Contains(expectedResult, actualResult);
+    }
+
+    [Fact]
+    public void LoadFile_ShouldFail()
+    {
+        //Arrange
+        var fileName = "doc";
+
+        //Act + Assert
+        Assert.Throws<FileNotFoundException>(() =>  FileLoadingSimul.LoadFile(fileName));
+    }
+
+    [Fact]
+    public void LoadFileWithCustomError_ShouldFail()
+    {
+        //Arrange
+        var fileName = "doc";
+
+        //Act +Assert
+        Assert.Throws<ArgumentException>(fileName, () => FileLoadingSimul.LoadFileWithCustomError(fileName));
     }
 }
