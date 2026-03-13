@@ -2,7 +2,7 @@
 
 namespace TestEnvironmentTests;
 
-public class FileLoadingSimulTest
+public class FileLoadingSimulTests
 {
 
     [Fact]
